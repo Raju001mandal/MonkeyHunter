@@ -1,0 +1,61 @@
+set terminal wxt background 'black'
+unset key
+unset tics
+unset grid
+unset border
+
+unset colorbox
+set xrange[0:75]
+set yrange[0:75]
+
+
+do for [n=0:23] {
+     
+     set multiplot layout 1,1
+     
+     
+     plot 'projectile2.dat' using 1:2 every ::0::n w l lt 3 lw 2 lc rgb "red"   
+     plot 'projectile2.dat' using 3:4 every ::n::n with circles lc rgb "green"
+     
+      if (n==22){
+       set arrow from 57.27,43.09 to 62.48,44.66 filled back lc rgb "red"
+      }
+      
+      
+      if (n==3){
+       set arrow from 0,0 to 60,0 filled back lc rgb "white"
+       set label '49.39 deg' at 2,1.8 textcolor "#FFFFFF" font ",15"
+      }
+      
+      
+      if (n==5){
+       
+       set label 'v=40m/s' at 2,12 textcolor "#FFFFFF" font ",15"
+      }
+       
+     if (n==7){
+       set label 'Distance = 60 m ' at 20,5 textcolor "#FFFFFF" font ",15"
+      }
+      
+      if (n==0){
+       set arrow from 0,0 to 5.21,5.87 filled back lc rgb "white" lw 0.1
+       
+       set arrow from 60,0 to 60,70 filled back lc rgb "white" lw 0.1
+       set label 'Height = 70 m ' at 62,50 textcolor "#FFFFFF" font ",15"
+      }
+      
+      if (n==4){
+       set label 'SO DECIDED TO THROW A ROCK TOWARDS THE FALLING APPLE' at 10,50 textcolor "#FFFFFF" font ",15"
+      }
+      
+     if (n==0){
+       set label 'NEWTON IS TIRED OF APPLES FALLING ON HIS HEAD' at 10,60 textcolor "#FFFFFF" font ",15"
+      }
+      
+     if (n==22){
+       set label 'HAIL NEWTON!!' at 62,42 textcolor "#FFFFFF" font ",15"
+      }
+     unset multiplot
+     
+     pause 0.5
+}
